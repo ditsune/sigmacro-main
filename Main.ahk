@@ -41,7 +41,7 @@ EnsureDefaultConfig()
 LoadConfig()
 LoadStats()
 
-iconPath := A_MyDocuments "\..\Downloads\OnlyDits\assets\sticker.ico"
+iconPath := A_ScriptDir "\assets\sticker.ico"
 if FileExist(iconPath)
     TraySetIcon(iconPath)
 
