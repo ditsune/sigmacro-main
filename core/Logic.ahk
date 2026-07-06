@@ -313,7 +313,7 @@ DoLoginClipboard() {
     HumanClick(COORD["login_pass_x"],  COORD["login_pass_y"])
     Sleep(200)
     HumanClick(COORD["login_user_x"],  COORD["login_user_y"])
-    Sleep(50)
+    Sleep(150)
     Send("^a")
     Sleep(50)
     Send("#v")
@@ -337,11 +337,11 @@ DoLoginWebsite() {
     global COORD, CFG
 
     HumanClick(COORD["web_tab1_x"], COORD["web_tab1_y"])
-    Sleep(200)
+    Sleep(150)
     HumanClick(COORD["web_tab2_x"], COORD["web_tab2_y"])
-    Sleep(200)
+    Sleep(150)
     HumanClick(COORD["web_tab3_x"], COORD["web_tab3_y"])
-    Sleep(200)
+    Sleep(150)
 
     HumanClick(COORD["login_focus_x"], COORD["login_focus_y"])
     Delay()
@@ -892,25 +892,23 @@ BCAuthenWeb() {
 DoLoginClipboardWeb() {
     global COORD, CFG
     EnsureRobloxFocused()
-    HumanClick(COORD["login_focus_x"], COORD["login_focus_y"])
-    Delay()
     HumanClick(COORD["login_pass_x"],  COORD["login_pass_y"])
     Sleep(200)
     HumanClick(COORD["login_user_x"],  COORD["login_user_y"])
-    Sleep(50)
+    Sleep(150)
     Send("^a")
     Sleep(50)
     Send("#v")
     Sleep(CFG["winv_delay"])
-    HumanClick(COORD["login_submit1_x"], COORD["login_submit1_y"])
-    Sleep(200)
+    DirectClick(COORD["login_submit1_x"], COORD["login_submit1_y"])
+    Sleep(250)
     Send("{Tab}")
     Sleep(200)
     Send("^a")
     Delay()
     Send("#v")
     Sleep(CFG["winv_delay"])
-    HumanClick(COORD["login_submit1_x"], COORD["login_submit1_y"])
+    DirectClick(COORD["login_submit1_x"], COORD["login_submit1_y"])
     RandSleep(CFG["submit_delay"], CFG["submit_delay"] + 100)
     Send("{Enter}")
     Sleep(300)
@@ -956,7 +954,7 @@ BeliRobux(imageName, label) {
 
     ; Kalau belum ketemu, scroll up max 2×
     if !found {
-        loop 2 {
+        loop 3 {
             if FindRobuxItemStable(imageName, &ix, &iy) {
                 found := true
                 break
